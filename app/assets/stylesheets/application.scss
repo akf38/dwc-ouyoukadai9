@@ -43,3 +43,21 @@ div {
 .favorited{
   color: #FF0099;
 }
+
+.comment-box{
+  height:80px;
+}
+.comment-user{
+  display: inline-block;
+}
+.comment-text{
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.comment-delete-button{
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
