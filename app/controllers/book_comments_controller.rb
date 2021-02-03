@@ -3,20 +3,23 @@ class BookCommentsController < ApplicationController
     before_action :ensure_correct_user, only: [:destroy]
     
     def create
+        @book = Book.find(params[:book_id])
         @book_comment = current_user.book_comments.new(book_id: params[:book_id], comment: params[:comment])
-        if @book_comment.save
-            redirect_back(fallback_location: root_path)
-        else
-            @book = Book.find(params[:book_id])
-            @newbook = Book.new
-            render 'books/show'
+        @book_comment.save
+        respond_to do |format|
+        format.html {redirect_back(fallback_location: root_path)}
+        format.js
         end
     end
     
     def destroy
         @book_comment = BookComment.find(params[:id])
+        @book = @book_comment.book
         @book_comment.destroy
-        redirect_back(fallback_location: root_path)
+        respond_to do |format|
+        format.html {redirect_back(fallback_location: root_path)}
+        format.js
+        end
     end
     
     private
