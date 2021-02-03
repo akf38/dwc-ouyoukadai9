@@ -1,2 +1,3 @@
 $(".commentlist-box").html("<%= escape_javascript(render partial: 'shared/commentlist', locals: {book: @book}) %>");
 $(".commentform-box").html("<%= escape_javascript(render partial: 'shared/commentform', locals: {book: @book}) %>");
+$("#bookcomment-number").html("コメント数：<%= @book.book_comments.count %>");
