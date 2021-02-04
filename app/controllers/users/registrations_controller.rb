@@ -10,9 +10,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    if user_signed_in?
+      ThanksMailer.complete_mail(@user).deliver_now
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -59,4 +62,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  
+  private
+  
+  def user_params
+    params.require(:user).permit(:name,
+                                 :email, 
+                                 :postcode, 
+                                 :prefecture_code, 
+                                 :address_city, 
+                                 :address_street,
+                                 :password,
+                                 :password_confirmation)
+  end
+  
 end
