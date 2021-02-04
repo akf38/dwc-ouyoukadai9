@@ -29,6 +29,10 @@ class User < ApplicationRecord
                                      
   has_many :followers,                through: :passive_relationships,
                                        source: :follower
+                                       
+  has_many :user_rooms, dependent: :destroy
+  
+  has_many :chats,      dependent: :destroy
   
   # ユーザーをフォローする　<＜は配列に追加の意味
   def follow(other_user)

@@ -39,4 +39,21 @@
 <div>
   <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
 </div>
+<% else %>
+  <% if @isroom == true %>
+    <%= link_to "chatを始める", room_path(id: @roomid, user_id: user.id) %>
+  <% else %>
+    
+    <!--これはメモ用に残す formwith ver-->
+    <!--<%= form_with model: @room, local: true do |f| %>-->
+    <!--  <%= fields_for @user_room do |e| %>-->
+    <!--    <%= e.hidden_field :user_id, value: user.id %>-->
+    <!--  <% end %>-->
+    <!--  <%= f.submit "chatを始める" %>-->
+    <!--ここまでメモ-->
+    
+    <%= link_to "chatを始める", rooms_path(user_id: user.id), method: :post %>
+    <% end %>
+  <% end %>
 <% end %>
+        

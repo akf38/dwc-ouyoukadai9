@@ -67,3 +67,27 @@ div {
 .search-form{
   text-align: center;
 }
+
+// チャットルーム
+.chatroom{
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
+
+.chatlist-container{
+  width: 65%;
+  margin: 0 auto;
+}
+.cu-message-box{
+  width: 35%;
+  margin-left: auto;
+}
+.u-message-box{
+  width: 35%;
+  margin-right: auto;
+}
+
+#chat-btn{
+  display: none;
+}
