@@ -20,8 +20,4 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   
   get '/search' => 'search#search'
-  
-  resources :chats, only: [:create]
-  
-  resources :rooms, only: [:show, :create]
 end
