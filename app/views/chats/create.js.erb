@@ -1,0 +1,2 @@
+$(".chatlist-container").html("<%= escape_javascript(render partial: 'rooms/chatlist', locals: {chats: @chats, user: @user}) %>");
+$(".chatform-container").html("<%= escape_javascript(render partial: 'rooms/chatform', locals: {chat: @chat, room: @room, user: @user}) %>");

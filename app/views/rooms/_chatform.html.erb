@@ -1,0 +1,7 @@
+<%= form_with model: chat, remote: true do |f| %>
+  <%= f.text_field :message, autofocus: true %>
+  <%= f.hidden_field :room_id, value: room.id %>
+  <%= f.hidden_field :u_id, value: user.id %>
+  <br>
+  <%= f.submit "投稿する", id: "chat-btn", autofocus: true %>
+<% end %>
